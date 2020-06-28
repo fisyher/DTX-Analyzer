@@ -33,7 +33,6 @@ myArgParser.addArgument(
 )
 
 let args = myArgParser.parseArgs();
-console.log(args);
 
 let dtxParser = new DtxFileParser(args.input);
 if(args.json){

@@ -84,10 +84,10 @@ export class DtxFileParser {
         //Get bar lengths of ALL bars
         this.barLengths = this.extractBarLengths(content, highestBarNumber)
         
-        console.log(this.barLengths)
+        //console.log(this.barLengths)
         //Get bpm markers array
         this.bpmMarkers = this.extractBpmMarkers(content, this.barLengths)
-        console.log(this.bpmMarkers)
+        //console.log(this.bpmMarkers)
 
         /**
          * After obtaining barlengths and bpmMarkers data, it is now possible to calculate absolute time 
@@ -394,7 +394,7 @@ export class DtxFileParser {
             chip_matchResults.push(matchResult);
         }
 
-        console.log(chip_matchResults)        
+        //console.log(chip_matchResults)        
 
         let chipLine_objects = [];
         chip_matchResults.forEach(element => {
@@ -451,8 +451,8 @@ export class DtxFileParser {
             barLengths.push(currBarLength)            
         }
         //Test
-        console.log(this.extractBpmMarkers)
-        console.log(barLengths)
+        //console.log(this.extractBpmMarkers)
+        //console.log(barLengths)
         return barLengths;
     }
 
@@ -506,7 +506,7 @@ export class DtxFileParser {
                     if(bpmLabelValue){
                         let label:string = bpmLabelValue[0].substring(4, 6)
                         let bpmValue: Number = parseFloat(bpmLabelValue[1])
-                        console.log('bpm value is ', bpmValue)
+                        //console.log('bpm value is ', bpmValue)
                         bpmLabelMap[label] = bpmValue
                     }                    
                 });
@@ -521,8 +521,7 @@ export class DtxFileParser {
                     BPMLane_matchResults.push(matchResult);
                 }
 
-                BPMLane_matchResults.forEach(element => {
-                    console.log(element)
+                BPMLane_matchResults.forEach(element => {                    
                     let BPMLaneBarItem : BarLaneItem | null = this.decodeLineData(element[0])                    
                     if(BPMLaneBarItem){
                         let currBarLength: number = barLengths[BPMLaneBarItem.barNum]
